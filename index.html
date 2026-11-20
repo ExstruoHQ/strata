@@ -93,12 +93,11 @@ img { display: block; max-width: 100%; }
 /* 기능 */
 .block { border-top: 1px solid var(--rule); padding-block: 120px; }
 .block h2 { font-weight: 500; font-size: clamp(32px, 4.4vw, 60px); line-height: 1.2; letter-spacing: -0.035em; text-wrap: balance; margin-top: 22px; }
-.feats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 64px; }
-.feat { border-radius: 24px; background: var(--glass); box-shadow: 0 10px 34px rgba(0,0,0,.3); overflow: hidden; display: flex; flex-direction: column; }
-.feat .txt { padding: 28px 30px 24px; }
-.feat .t { font-family: var(--wide); font-stretch: 125%; font-weight: 300; font-size: 30px; text-transform: uppercase; line-height: 1; }
-.feat p { color: var(--mute); margin-top: 12px; }
-.feat img { margin-top: auto; border-top: 1px solid rgba(255,255,255,.08); }
+.feats { margin-top: 64px; border-top: 1px solid var(--rule); }
+.feat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: 56px; align-items: center; padding: 56px 0; border-bottom: 1px solid var(--rule); }
+.feat .t { font-family: var(--wide); font-stretch: 125%; font-weight: 300; font-size: clamp(30px, 3.6vw, 48px); text-transform: uppercase; line-height: 1; }
+.feat p { color: var(--mute); margin-top: 16px; max-width: 30ch; }
+.feat img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 30px 70px rgba(0,0,0,.5); }
 
 /* 다운로드 */
 .install { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; margin-top: 64px; }
@@ -129,7 +128,7 @@ img { display: block; max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) { .strata i { transition: none; } .bigw { --x: 0 !important; } }
 @media (max-width: 920px) {
-  .hero .below, .install, .feats { grid-template-columns: minmax(0, 1fr); }
+  .hero .below, .install, .feat { grid-template-columns: minmax(0, 1fr); }
   .nav { display: none; }
   .block { padding-block: 90px; }
 }
@@ -167,13 +166,13 @@ img { display: block; max-width: 100%; }
   <section class="hero">
     <div class="wrap">
       <div class="meta"><span class="cap">Disk space, at a glance</span><span class="cap">C: · 931GB</span></div>
-      <div class="big" aria-label="사용 중 390GB"><span id="num">0</span><small>GB</small></div>
+      <div class="big" aria-label="사용 중 370GB"><span id="num">0</span><small>GB</small></div>
       <div class="strata" id="strata" aria-hidden="true">
-        <i style="--w:31.4%; background-color: var(--c-game)"></i>
-        <i style="--w:6.3%; background-color: var(--c-sys)"></i>
-        <i style="--w:1.9%; background-color: var(--c-data)"></i>
+        <i style="--w:28%; background-color: var(--c-game)"></i>
+        <i style="--w:6%; background-color: var(--c-sys)"></i>
+        <i style="--w:3%; background-color: var(--c-data)"></i>
         <i style="--w:1.8%; background-color: var(--c-app)"></i>
-        <i style="--w:.6%; background-color: var(--c-trash)"></i>
+        <i style="--w:.4%; background-color: var(--c-trash)"></i>
         <i style="--w:.5%; background-color: var(--c-arch)"></i>
       </div>
       <div class="legend" aria-hidden="true">
@@ -191,7 +190,7 @@ img { display: block; max-width: 100%; }
   </section>
 
   <section class="shot">
-    <div class="wrap"><div class="frame"><img src="img/overview.png" alt="Strata 한눈에 화면" width="1240" height="520"></div></div>
+    <div class="wrap"><div class="frame"><img src="img/overview.png" alt="Strata 한눈에 화면" width="1240" height="820"></div></div>
   </section>
 
   <section class="block" id="features">
@@ -199,10 +198,10 @@ img { display: block; max-width: 100%; }
       <span class="cap">Features</span>
       <h2>보고, 기록하고, 비우고.</h2>
       <div class="feats">
-        <div class="feat rim"><div class="txt"><div class="t">Map</div><p>크기만큼 커지는 블록으로 폴더 속을 들여다봐요.</p></div><img src="img/map.png" alt="폴더 지도 화면" loading="lazy" width="1240" height="820"></div>
-        <div class="feat rim"><div class="txt"><div class="t">History</div><p>하루 한 번 기록해서, 지난주보다 무엇이 늘었는지 알려 줘요.</p></div><img src="img/history.png" alt="기록 화면" loading="lazy" width="1240" height="450"></div>
-        <div class="feat rim"><div class="txt"><div class="t">Clean</div><p>휴지통 · 캐시 · 같은 파일 · 오래된 큰 파일. 골라서 휴지통으로.</p></div><img src="img/clean.png" alt="정리하기 화면" loading="lazy" width="1240" height="490"></div>
-        <div class="feat rim"><div class="txt"><div class="t">Games</div><p>게임별 용량과, Lapse로 기록한 마지막 플레이 날짜를 함께 보여 줘요.</p></div><img src="img/games.png" alt="게임 목록" loading="lazy" width="912" height="400"></div>
+        <div class="feat"><div><div class="t">Map</div><p>크기만큼 커지는 블록으로 폴더 속을 들여다봐요.</p></div><img src="img/map.png" alt="폴더 지도 화면" loading="lazy" width="912" height="630"></div>
+        <div class="feat"><div><div class="t">History</div><p>하루 한 번 기록해서, 지난주보다 무엇이 늘었는지 알려 줘요.</p></div><img src="img/history.png" alt="기록 화면" loading="lazy" width="912" height="350"></div>
+        <div class="feat"><div><div class="t">Clean</div><p>휴지통 · 캐시 · 같은 파일 · 오래된 큰 파일. 골라서 비워요.</p></div><img src="img/clean.png" alt="앱 캐시 비우기 화면" loading="lazy" width="912" height="378"></div>
+        <div class="feat"><div><div class="t">Games</div><p>게임별 용량과, Lapse로 기록한 마지막 플레이 날짜.</p></div><img src="img/games.png" alt="게임 목록" loading="lazy" width="912" height="400"></div>
       </div>
     </div>
   </section>
@@ -255,7 +254,7 @@ img { display: block; max-width: 100%; }
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   // 숫자가 차오르고 층이 쌓인다
   const num = document.getElementById("num"), strata = document.getElementById("strata");
-  const TARGET = 390, DUR = 1600, t0 = Date.now();
+  const TARGET = 370, DUR = 1600, t0 = Date.now();
   // 숨은 탭에서도 끝 숫자까지 가도록 requestAnimationFrame 대신 타이머
   const timer = setInterval(() => {
     const k = reduce ? 1 : Math.min(1, (Date.now() - t0) / DUR);
